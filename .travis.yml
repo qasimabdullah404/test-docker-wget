@@ -8,3 +8,6 @@ services:
 script:
   - docker build .
   - docker network inspect bridge
+  - ip addr
+  - ip addr show eth0
+  - ip addr show ens4

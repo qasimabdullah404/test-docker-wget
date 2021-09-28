@@ -6,7 +6,10 @@ language: ruby
 services:
   - docker
 script:
-  - docker build .
+  - docker-compose run --no-deps web rails new . --force --database=postgresql
+  - sudo chown -R $USER:$USER .
+  - docker-compose build
+  - docker-compose up
   - docker network inspect bridge
   - ip addr
   - ip addr show eth0
